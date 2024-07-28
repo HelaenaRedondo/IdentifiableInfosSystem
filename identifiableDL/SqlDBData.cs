@@ -7,8 +7,8 @@ namespace identifiableDl
 {
     public class SqlDBData
     {
-        string connection = "Data Source =LILXX\\SQLEXPRESS; Initial Catalog = studinfoss; Integrated Security = True;";
-        //static string connection = "Server=tcp:20.205.142.95,1433; Database=StudentInfoManagement; User Id=sa; Password=Ainaganda546511";
+        string connection = "Data Source =LILXX\\SQLEXPRESS; Initial Catalog = StudInfoss; Integrated Security = True;";
+        //static string connection = "Server=tcp:20.205.142.95,1433; Database=StudInfoss; User Id=sa; Password=Ainaganda546511";
 
         SqlConnection sqlConnection;
 
