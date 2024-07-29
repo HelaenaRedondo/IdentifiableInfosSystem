@@ -23,22 +23,22 @@ namespace identifiableDatasAPI
 
 
         [HttpGet]
-        public IEnumerable<identifiableDatasAPi.Identifiable> Getidentity()
+        public IEnumerable<identifiableDatas> Getidentity()
         {
             var activeidentity = identifiablegetServices.Getidentifiableuser();
 
-            List<identifiableDatasAPi.Identifiable> identity = new List<identifiableDatasAPi.Identifiable>(1);
+            List<identifiableDatas> identity = new List<identifiableDatas>(1);
 
             foreach (var item in activeidentity)
             {
-                identity.Add(new identifiableDatasAPi.identifiableDatas { firstname = item.firstname, middlename = item.middlename, email = item.email, contactnumber = item.contactnumber, address = item.address, password = item.password });
+                identity.Add(new identifiableDatas { firstname = item.firstname, middlename = item.middlename, email = item.email, contactnumber = item.contactnumber, address = item.address, password = item.password });
             }
 
             return identity;
         }
 
         [HttpPost]
-        public JsonResult AddUser(identifiableDatas identity)
+        public JsonResult Addidentifiable(identifiableDatas identity)
         {
             var result = identifiableGetServices.CreateUser(identity.firstname, identity.middlename, identity.lastname, identity.email, identity.contactnumber, identity.address, identity.password);
             return new JsonResult(result);
@@ -47,7 +47,7 @@ namespace identifiableDatasAPI
         [HttpPatch]
         public JsonResult UpdateUser(identifiableDatas identity)
         {
-            var result = identifiableGetServices.UpdateUser(identity.firstname, identity.middlename, identity.lastname, identity.email, identity.contactnumber, identity.address, identity.password);
+            var result = identifiableTransactionServices.Updateidentifiable(identity.firstname);
             return new JsonResult(result);
         }
 
@@ -59,8 +59,9 @@ namespace identifiableDatasAPI
                 password = identity.password
             };
 
-            var result = identifiableGetServices.DeleteInfo(deletepassword);
+            var result = identifiableTransactionServices.DeleteInfo(deletepassword);
             return new JsonResult(result);
         }
     }
 }
+

@@ -2,13 +2,13 @@
 {
     public class identifiableDatas
     {
-        public string firstname { get; set; }
-        public string middlename { get; set; }
-        public string lastname { get; set; }
-        public string email { get; set; }
-        public string contactnumber { get; set; }
-        public string address { get; set; }
-        public string password { get; set; }
+        public string firstname;
+        public string middlename;
+        public string lastname;
+        public string email;
+        public string contactnumber;
+        public string address;
+        public string password;
 
     }
 }

@@ -7,8 +7,8 @@ namespace identifiableDl
 {
     public class SqlDBData
     {
-        string connection = "Data Source =LILXX\\SQLEXPRESS; Initial Catalog = StudInfoss; Integrated Security = True;";
-        //static string connection = "Server=tcp:20.205.142.95,1433; Database=StudInfoss; User Id=sa; Password=Ainaganda546511";
+
+        static string connection = "Server=tcp:20.2.233.28,1433; Database=Identifiable; User Id=sa; Password=Ainaganda546511";
 
         SqlConnection sqlConnection;
 
@@ -20,12 +20,12 @@ namespace identifiableDl
 
         public List<identifiableDatas> Getidentifiable()
         {
-            string SELECT = "SELECT * FROM Student";
+            string SELECT = "SELECT * FROM Users";
 
             SqlCommand selcom = new SqlCommand(SELECT, sqlConnection);
 
             sqlConnection.Open();
-            List<identifiableDatas> stud = new List<identifiableDatas>();
+            List<identifiableDatas>  user = new List<identifiableDatas>();
 
             SqlDataReader re = selcom.ExecuteReader();
 
@@ -49,19 +49,19 @@ namespace identifiableDl
                 read.password = password;
 
 
-                stud.Add(read);
+                user.Add(read);
 
             }
             sqlConnection.Close();
 
-            return stud;
+            return user;
         }
 
         public int Addidentifiable(string firstname, string middlename, string lastname, string contactnumber, string email, string address, string password)
         {
             int success;
 
-            string INSERT = "INSERT INTO Student VALUES(@firstname, @middlename, @lastname,@contactnumber, @address,@password)";
+            string INSERT = "INSERT INTO Users VALUES(@firstname, @middlename, @lastname,@contactnumber, @address,@password)";
 
             SqlCommand incom = new SqlCommand(INSERT, sqlConnection);
 
@@ -84,7 +84,7 @@ namespace identifiableDl
         {
             int success;
 
-            string UPDATE = $"UPDATE identifiable SET firstname = @firstname, middlename = @middlename, @lastname = lastname, email = @email,contactnumber = @contactnumber,address=@address WHERE StudentID = @password";
+            string UPDATE = $"UPDATE Users SET firstname = @firstname, middlename = @middlename, @lastname = lastname, email = @email,contactnumber = @contactnumber,address=@address WHERE password = @password";
 
             SqlCommand upcom = new SqlCommand(UPDATE, sqlConnection);
 
@@ -109,7 +109,7 @@ namespace identifiableDl
         {
             int success;
 
-            string DELETE = $"DELETE FROM identifiable WHERE password = @password";
+            string DELETE = $"DELETE FROM Users WHERE password = @password";
             SqlCommand delcom = new SqlCommand(DELETE, sqlConnection);
             sqlConnection.Open();
 

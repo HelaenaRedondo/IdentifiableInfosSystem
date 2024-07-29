@@ -17,6 +17,7 @@ namespace IdentifiableBusiness
         public bool Createidentifiable(string firstname, string middlename, string lastname, string email, string contactnumber, string address, string password)
         {
             bool result = false;
+            identifiableDatas identity = new identifiableDatas();   
 
             if (sc.IsloggedIn(identity.password))
             {
@@ -24,14 +25,17 @@ namespace IdentifiableBusiness
             }
             return result;
         }
-        public bool Createidentifiable(string firstname, string middlename, string lastname, string email, string contactnumber, string address, string password)
+        public bool Createidentifiable(string firstname)
         {
-            identifiableDatas hp = new identifiableDatas { firstname = firstname, middlename = middlename, lastname = lastname, email = email, contactnumber = contactnumber, address = address, password = password };
+            identifiableDatas hp = new identifiableDatas { firstname = firstname};
 
             return Createidentifiable(hp);
         }
 
-
+        private bool Createidentifiable(identifiableDatas hp)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool Updateidentifiable(string firstname, identifiableDatas identity)
         {
@@ -44,14 +48,17 @@ namespace IdentifiableBusiness
             }
             return result;
         }
-        public bool Updateidentifiable(string firstname, string middlename, string lastname, string email, string contactnumber, string address, string password)
+        public bool Updateidentifiable(string firstname)
         {
-            identifiableDatas hp = new identifiableDatas { firstname = firstname, middlename = middlename, lastname = lastname, email = email, contactnumber = contactnumber, address = address, password = password };
+            identifiableDatas hp = new identifiableDatas { firstname = firstname};
 
             return Updateidentifiable(hp);
         }
 
-
+        private bool Updateidentifiable(identifiableDatas hp)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool DeleteInfo(identifiableDatas identity)
         {
@@ -65,3 +72,4 @@ namespace IdentifiableBusiness
         }
     }
 }
+

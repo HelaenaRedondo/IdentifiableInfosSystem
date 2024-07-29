@@ -14,18 +14,18 @@ namespace IdentifiableBusiness
 
         public List<identifiableDatas> Getidentifiableuser()
         {
-            identifiableInfo studentOperator = new identifiableInfo();
-            return studentOperator.Getidentifiable();
+            identifiableInfo userOperator = new identifiableInfo();
+            return userOperator.Getidentifiable();
         }
         public identifiableDatas Getidentifiableuser(string password)
         {
             identifiableDatas hpr = new identifiableDatas();
 
-            foreach (var stud in Getidentifiableuser())
+            foreach (var user in Getidentifiableuser())
             {
-                if (stud.password == password)
+                if (user.password == password)
                 {
-                    hpr = stud;
+                    hpr = user;
                 }
             }
             return hpr;
@@ -35,14 +35,15 @@ namespace IdentifiableBusiness
         {
             identifiableDatas hpr = new identifiableDatas();
 
-            foreach (var stud in Getidentifiableuser())
+            foreach (var user in Getidentifiableuser())
             {
-                if (stud.firstname == firstname)
+                if (user.firstname == firstname)
                 {
-                    hpr = stud;
+                    hpr = user;
                 }
             }
             return hpr;
         }
+
     }
 }
